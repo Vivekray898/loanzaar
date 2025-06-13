@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loanzaar - Work in Progress</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for a clean, modern typeface -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for premium feel and specific animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%); /* Subtle gradient background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes footer to bottom */
+            align-items: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .main-content {
+            flex-grow: 1; /* Allows content to take available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            max-width: 90%; /* Responsive max-width */
+            margin: 0 auto;
+        }
+
+        /* Loading spinner animation */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3); /* Light border for spinner track */
+            border-top: 4px solid #4376BA; /* Blue part of the spinner */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Subtle pulsating effect for text */
+        .pulsate {
+            animation: pulsate-text 2s ease-out infinite;
+        }
+
+        @keyframes pulsate-text {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        .footer-section {
+            width: 100%;
+            background-color: #334155; /* Dark slate for footer */
+            color: #cbd5e0; /* Light text */
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-size: 0.875rem; /* text-sm */
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 1.5rem 1.5rem 0 0; /* Rounded top corners */
+        }
+
+        .footer-link {
+            color: #93c5fd; /* Light blue for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #bfdbfe;
+            text-decoration: underline;
+        }
+
+        /* Financial Animation (Bar Chart Growth) */
+        .financial-animation-container {
+            width: 100%;
+            max-width: 400px; /* Constrain width for animation */
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: flex-end; /* Align bars to the bottom */
+            justify-content: space-around;
+            padding: 1rem;
+            margin-top: 3rem; /* Space from spinner */
+            overflow: hidden; /* Ensure bars don't exceed container */
+        }
+
+        .bar-chart-bar {
+            width: 15%; /* Width of each bar */
+            background-color: #4376BA; /* Blue color for bars */
+            border-radius: 0.25rem 0.25rem 0 0; /* Rounded top corners for bars */
+            animation: bar-grow 2s ease-out infinite alternate; /* Grow animation */
+            transform-origin: bottom; /* Grow from bottom */
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .bar-chart-bar:nth-child(1) { height: 30%; animation-delay: 0s; }
+        .bar-chart-bar:nth-child(2) { height: 60%; animation-delay: 0.2s; background-color: #E73F4E; } /* Red bar */
+        .bar-chart-bar:nth-child(3) { height: 45%; animation-delay: 0.4s; }
+        .bar-chart-bar:nth-child(4) { height: 75%; animation-delay: 0.6s; background-color: #4CAF50; } /* Green bar */
+
+        @keyframes bar-grow {
+            0% { transform: scaleY(0.2); opacity: 0.6; }
+            100% { transform: scaleY(1); opacity: 1; }
+        }
+
+        /* Responsive adjustments for animation */
+        @media (max-width: 640px) {
+            .financial-animation-container {
+                padding: 0.75rem;
+                height: 120px;
+                max-width: 300px;
+            }
+            .bar-chart-bar {
+                width: 18%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Logo/Site Name -->
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold text-gray-800 mb-6 tracking-tight drop-shadow-lg">
+            <span class="text-blue-600">L</span>oanzaar
+        </h1>
+
+        <!-- Work in Progress Heading -->
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-700 mb-4 pulsate">
+            Site Under Construction!
+        </h2>
+
+        <!-- Descriptive Message -->
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+            We're building something amazing to revolutionize your financial journey.
+            Our platform will offer seamless loan and financial solutions tailored to your needs.
+            Stay tuned!
+        </p>
+
+        <!-- Loading Spinner -->
+        <div class="flex flex-col items-center mb-12">
+            <div class="spinner border-blue-500 border-t-blue-700 mb-4"></div>
+            <p class="text-base text-gray-500 font-medium">Almost there...</p>
+        </div>
+
+        <!-- Financial Animation Section (Replaced Email Subscription) -->
+        <div class="financial-animation-container">
+            <div class="bar-chart-bar"></div>
+            <div class="bar-chart-bar"></div>
+            <div class="bar-chart-bar"></div>
+            <div class="bar-chart-bar"></div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <p>&copy; <span id="currentYear"></span> Loanzaar. All rights reserved.</p>
+        <p>Contact: <a href="mailto:loanzaar@gmail.com" class="footer-link">loanzaar@gmail.com</a></p>
+        <p>Address: Purbachyan Para, Dabgram P, Ghogomali, Siliguri, West Bengal 734006</p>
+    </footer>
+
+    <script>
+        // Set current year dynamically for the copyright notice
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
